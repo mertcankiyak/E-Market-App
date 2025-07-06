@@ -35,7 +35,7 @@ class CartViewController: UIViewController {
     
     private let totalLabel: UILabel = {
         let label = UILabel()
-        label.text = "Total:"
+        label.text = TextConstants.CartConstants.total
         label.font = .systemFont(ofSize: 18, weight: .regular)
         label.textColor = .systemGray
         return label
@@ -51,7 +51,7 @@ class CartViewController: UIViewController {
     private lazy var emptyCartLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Your cart is empty."
+        label.text = TextConstants.CartConstants.emptyCart
         label.font = .systemFont(ofSize: 18, weight: .medium)
         label.textColor = .systemGray
         label.textAlignment = .center
@@ -61,7 +61,7 @@ class CartViewController: UIViewController {
     
     private let completeButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Complete", for: .normal)
+        button.setTitle(TextConstants.CartConstants.complete, for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 18, weight: .bold)
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .systemBlue

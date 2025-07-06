@@ -53,7 +53,7 @@ class FavoriteViewController: UIViewController {
     }
     
     private func setupUI() {
-        title = "Favorites"
+        title = TextConstants.TabConstants.favorite
         view.backgroundColor = .systemBackground
         
         view.addSubview(collectionView)

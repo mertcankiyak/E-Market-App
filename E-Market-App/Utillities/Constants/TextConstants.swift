@@ -25,4 +25,10 @@ enum TextConstants {
         static let filter = "Filter:"
     }
     
+    enum CartConstants {
+        static let total = "Total:"
+        static let emptyCart = "Your cart is empty."
+        static let complete = "Complete"
+    }
+    
 }

@@ -22,7 +22,7 @@ class HomeViewController: UIViewController {
     private lazy var filtersLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Filters:"
+        label.text = TextConstants.FilterConstants.filter
         label.font = .systemFont(ofSize: 18, weight: .medium)
         label.textColor = .darkGray
         return label
