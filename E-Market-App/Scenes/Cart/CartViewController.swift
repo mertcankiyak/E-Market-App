@@ -115,8 +115,10 @@ class CartViewController: UIViewController {
             self.emptyCartLabel.isHidden = !isCartEmpty
             
             if !isCartEmpty {
-                self.tableView.reloadData()
-                self.priceLabel.text = self.viewModel.totalPriceString
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                    self.priceLabel.text = self.viewModel.totalPriceString
+                }
             }
         }
     }

@@ -74,7 +74,7 @@ class ProductDetailViewController: UIViewController {
     
     private let priceInfoLabel: UILabel = {
         let label = UILabel()
-        label.text = "Price:"
+        label.text = TextConstants.DetailConstants.price
         label.font = .systemFont(ofSize: 18, weight: .regular)
         label.textColor = .systemGray
         return label

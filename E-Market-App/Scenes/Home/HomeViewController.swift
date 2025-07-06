@@ -103,9 +103,10 @@ class HomeViewController: UIViewController {
     private func bindViewModel() {
         viewModel.onStateChange = { [weak self] state in
             guard let self = self else { return }
+            
             let filterDescription = self.viewModel.getActiveFiltersDescription()
             if filterDescription == "No Filters" {
-                self.filtersLabel.text = "Filters:"
+                self.filtersLabel.text = TextConstants.HomeConstants.filters
                 self.filtersLabel.textColor = .darkGray
                 self.filtersLabel.font = .systemFont(ofSize: 18, weight: .regular)
             } else {

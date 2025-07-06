@@ -7,6 +7,16 @@
 
 import UIKit
 
+// MARK: - UITabBarControllerDelegate
+extension MainTabBarController: UITabBarControllerDelegate {
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        guard let navigationController = viewController as? UINavigationController else { return }
+        if navigationController.viewControllers.count > 1 {
+            navigationController.popToRootViewController(animated: false)
+        }
+    }
+}
+
 class MainTabBarController: UITabBarController {
     
     override func viewDidLoad() {
@@ -15,6 +25,7 @@ class MainTabBarController: UITabBarController {
         setupAppearance()
         NotificationCenter.default.addObserver(self, selector: #selector(updateCartBadge), name: .didUpdateCart, object: nil)
         updateCartBadge()
+        delegate = self
     }
     
     deinit {
@@ -23,18 +34,18 @@ class MainTabBarController: UITabBarController {
     
     private func setupTabs() {
         let homeVC = HomeViewController(viewModel: HomeViewModel())
-        homeVC.navigationItem.title = "E-Market"
+        homeVC.navigationItem.title = TextConstants.HomeConstants.title
         let homeNav = UINavigationController(rootViewController: homeVC)
-        homeNav.tabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "house"), selectedImage: UIImage(systemName: "house.fill"))
+        homeNav.tabBarItem = UITabBarItem(title: TextConstants.TabConstants.home, image: UIImage(systemName: "house"), selectedImage: UIImage(systemName: "house.fill"))
         
         let cartVC = CartViewController(viewModel:  CartViewModel())
-        cartVC.tabBarItem = UITabBarItem(title: "Cart", image: UIImage(systemName: "cart"), selectedImage: UIImage(systemName: "cart.fill"))
+        cartVC.tabBarItem = UITabBarItem(title: TextConstants.TabConstants.myCart, image: UIImage(systemName: "cart"), selectedImage: UIImage(systemName: "cart.fill"))
         
         let favoritesVC = FavoriteViewController(viewModel: FavoriteViewModel())
-        favoritesVC.tabBarItem = UITabBarItem(title: "Favorites", image: UIImage(systemName: "star"), selectedImage: UIImage(systemName: "star.fill"))
+        favoritesVC.tabBarItem = UITabBarItem(title: TextConstants.TabConstants.favorite, image: UIImage(systemName: "star"), selectedImage: UIImage(systemName: "star.fill"))
         
         let profileVC = ProfileViewController()
-        profileVC.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(systemName: "person"), selectedImage: UIImage(systemName: "person.fill"))
+        profileVC.tabBarItem = UITabBarItem(title: TextConstants.TabConstants.profile, image: UIImage(systemName: "person"), selectedImage: UIImage(systemName: "person.fill"))
         
         viewControllers = [homeNav, cartVC, favoritesVC, profileVC]
     }

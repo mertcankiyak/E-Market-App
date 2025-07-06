@@ -17,13 +17,10 @@ protocol CoreDataProtocol {
     func incrementQuantity(for item: CartItemEntity)
     func decrementQuantity(for item: CartItemEntity)
     func fetchAllFavoriteItems() -> [FavoriteItemEntity]
-    func removeFromFavorites(productId: String) 
+    func removeFromFavorites(productId: String)
 }
 
-extension Notification.Name {
-    static let didUpdateCart = Notification.Name("didUpdateCartNotification")
-    static let didUpdateFavorites = Notification.Name("didUpdateFavoritesNotification")
-}
+
 
 class CoreDataManager : CoreDataProtocol {
     

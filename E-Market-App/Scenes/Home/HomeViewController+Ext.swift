@@ -55,7 +55,6 @@ extension HomeViewController: UICollectionViewDataSource {
 extension HomeViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let product = viewModel.displayedProducts[indexPath.item]
-        print("Tapped on \(product.name ?? "a product")")
         let detailVC = ProductDetailViewController(product: product)
         navigationController?.pushViewController(detailVC, animated: true)
     }

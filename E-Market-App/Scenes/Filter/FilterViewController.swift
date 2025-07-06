@@ -123,7 +123,7 @@ class FilterViewController: UIViewController {
     }
     
     private func setupNavigationBar() {
-        title = "Filter"
+        title = TextConstants.FilterConstants.filter
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "xmark"), style: .plain, target: self, action: #selector(didTapClose))
     }
     
