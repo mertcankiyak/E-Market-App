@@ -5,7 +5,6 @@
 //  Created by Mert on 6.07.2025.
 //
 
-// in YourProjectTests/ProductDetailViewModelTests.swift
 
 import XCTest
 @testable import E_Market_App

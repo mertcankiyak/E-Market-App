@@ -6,21 +6,15 @@
 //
 
 import Foundation
-import UIKit // UIImage'dan Data oluşturmak için gerekebilir
-@testable import E_Market_App // Projenizin gerçek adını buraya yazın
+import UIKit
+@testable import E_Market_App 
 
-// in YourProjectTests/Mocks/MockNetworkManager.swift
 
 import Foundation
 @testable import E_Market_App // Projenizin adı
 
-// Bu mock sınıfı, önceki tüm karmaşıklıklardan arındırılmıştır.
 class MockNetworkManager: NetworkManagingProtocol {
-    
-    // MARK: - Properties for Controlling Test Behavior
-    
-    // Başarılı bir sonuç döndürmek için bu değişkene veri ata.
-    // Tipi 'Any' olduğu için her türlü Decodable modeli atayabiliriz.
+   
     var successDataToReturn: Any?
     
     // Hatalı bir sonuç döndürmek için bu değişkene bir NetworkError ata.

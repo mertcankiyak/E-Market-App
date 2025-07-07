@@ -10,15 +10,41 @@
 import Foundation
 
 class MockDataManager: CoreDataProtocol {
-
-    var favoriteProductIds: Set<String> = []
-    var cartItemsToReturn: [CartItemEntity] = []
-        var incrementQuantityCalled = false
-        var decrementQuantityCalled = false
     
-    // Hangi fonksiyonların çağrıldığını kontrol etmek için
+    
+    
+    
+    var favoriteItemsToReturn: [FavoriteItemEntity] = []
+    
+    var removeFromFavoritesCalled = false
+    
+    var removedProductId: String?
+    
+    var favoriteProductIds: Set<String> = []
+    var fetchAllFavoriteItemsList : [FavoriteItemEntity] = []
+    var cartItemsToReturn: [CartItemEntity] = []
+    var incrementQuantityCalled = false
+    var decrementQuantityCalled = false
+    
     var addToCartCalled = false
     var toggleFavoriteCalled = false
+    var removeFromFavorites = true
+    
+    func fetchAllFavoriteItems() -> [E_Market_App.FavoriteItemEntity] {
+        return fetchAllFavoriteItemsList
+    }
+    
+    func removeFromFavorites(productId: String) {
+        self.removeFromFavoritesCalled = true
+        
+        self.removedProductId = productId
+        
+        
+        if let index = favoriteItemsToReturn.firstIndex(where: { $0.productId == productId }) {
+            favoriteItemsToReturn.remove(at: index)
+        }
+    }
+    
     
     func fetchAllFavoriteProductIds() -> Set<String> {
         return favoriteProductIds
@@ -37,14 +63,14 @@ class MockDataManager: CoreDataProtocol {
     }
     
     func fetchAllCartItems() -> [CartItemEntity] {
-            return cartItemsToReturn
-        }
-        
-        func incrementQuantity(for item: CartItemEntity) {
-            incrementQuantityCalled = true
-        }
-        
-        func decrementQuantity(for item: CartItemEntity) {
-            decrementQuantityCalled = true
-        }
+        return cartItemsToReturn
+    }
+    
+    func incrementQuantity(for item: CartItemEntity) {
+        incrementQuantityCalled = true
+    }
+    
+    func decrementQuantity(for item: CartItemEntity) {
+        decrementQuantityCalled = true
+    }
 }

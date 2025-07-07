@@ -20,8 +20,6 @@ protocol CoreDataProtocol {
     func removeFromFavorites(productId: String)
 }
 
-
-
 class CoreDataManager : CoreDataProtocol {
     
     static let shared = CoreDataManager()
